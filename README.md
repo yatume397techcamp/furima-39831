@@ -31,3 +31,18 @@
 
 ### Association
 - belongs_to :user
+- has_one :address
+
+
+## addressesテーブル
+| Column | Type | Option |
+|-|-|-|
+| postal_code | string | null: false |
+| prefecture | integer | null: false |
+| city | string | null: false |
+| house_number | string | null: false |
+| building_name | string | null: false |
+| phone_number | string | null: false |
+
+### Association
+- belongs_to :item
