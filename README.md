@@ -13,14 +13,14 @@
 | date_of_birth | date | null: false |
 
 ### Association
-- has_many :items
+- has_many :orders
 
 ## itemsテーブル
 | Column | Type | Option |
 |-|-|-|
 | id(PK) | integer | null: false |
 | name | string | null: false |
-| descritption | text | null: false |
+| description | text | null: false |
 | price | integer | null: false |
 | category_id | integer | null: false |
 | condition_id | integer | null: false |
@@ -30,19 +30,36 @@
 | user(FK) | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
-- has_one :address
+- belongs_to :order
 
 
 ## addressesテーブル
 | Column | Type | Option |
 |-|-|-|
+| id(PK) | integer | null: false |
 | postal_code | string | null: false |
-| prefecture | integer | null: false |
+| prefecture_id | integer | null: false |
 | city | string | null: false |
-| house_number | string | null: false |
-| building_name | string | null: false |
+| addresses | string | null: false |
+| building | string |  |
 | phone_number | string | null: false |
+| oder(FK) | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :item
+- belongs_to :order
+
+
+
+## ordersテーブル
+| Column | Type | Option |
+|-|-|-|
+| id(PK) | integer | null: false |
+| user(FK) | references | null: false, foreign_key: true |
+| item(FK) | references | null: false, foreign_key: true |
+| address(FK) | references | null: false, foreign_key: true |
+
+### Association
+- has_one :address
+- belongs_to :user
+- has_many :items
+
