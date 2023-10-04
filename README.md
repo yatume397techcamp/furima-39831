@@ -14,6 +14,8 @@
 
 ### Association
 - has_many :orders
+- has_many :items
+
 
 ## itemsテーブル
 | Column | Type | Option |
@@ -30,7 +32,9 @@
 | user(FK) | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :order
+- has_one :order
+- belongs_to :user
+
 
 
 ## addressesテーブル
@@ -43,7 +47,7 @@
 | addresses | string | null: false |
 | building | string |  |
 | phone_number | string | null: false |
-| oder(FK) | references | null: false, foreign_key: true |
+| order(FK) | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :order
@@ -56,10 +60,9 @@
 | id(PK) | integer | null: false |
 | user(FK) | references | null: false, foreign_key: true |
 | item(FK) | references | null: false, foreign_key: true |
-| address(FK) | references | null: false, foreign_key: true |
 
 ### Association
 - has_one :address
 - belongs_to :user
-- has_many :items
+- belongs_to :item
 
