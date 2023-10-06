@@ -1,3 +1,4 @@
+# \\wsl.localhost\Ubuntu\home\aivets\projects\furima-39831\app\models\shipping_charge.rb
 class ShippingCharge < ActiveHash::Base
   self.data = [
     { id: 0, charge: '---' },

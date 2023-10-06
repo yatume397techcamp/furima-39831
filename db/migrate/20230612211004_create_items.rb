@@ -1,3 +1,4 @@
+# \\wsl.localhost\Ubuntu\home\aivets\projects\furima-39831\db\migrate\20230612211004_create_items.rb
 class CreateItems < ActiveRecord::Migration[7.0]
   def change
     create_table :items do |t|

@@ -1,3 +1,4 @@
+\\wsl.localhost\Ubuntu\home\aivets\projects\furima-39831\app\controllers\items_controller.rb
 class ItemsController < ApplicationController
   before_action :select_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]

@@ -1,3 +1,4 @@
+# \\wsl.localhost\Ubuntu\home\aivets\projects\furima-39831\app\models\shipping_date.rb
 class ShippingDate < ActiveHash::Base
   self.data = [
     { id: 0, date: '---' },
