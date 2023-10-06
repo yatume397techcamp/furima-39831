@@ -1,6 +1,7 @@
 # \\wsl.localhost\Ubuntu\home\aivets\projects\furima-39831\app\models\item.rb
 class Item < ApplicationRecord
   belongs_to :user
+  has_one :order
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
