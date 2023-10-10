@@ -28,4 +28,9 @@ class Item < ApplicationRecord
     validates :shipping_date_id
     validates :prefecture_id
   end
+  
+  #商品が売り切れているか銅貨を確認する
+  def sold_out?
+    Order.exists?(item_id: self.id)
+  end
 end

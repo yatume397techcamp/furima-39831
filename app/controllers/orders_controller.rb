@@ -1,6 +1,9 @@
 # \\wsl.localhost\Ubuntu\home\aivets\projects\furima-39831\app\controllers\orders_controller.rb
 class OrdersController < ApplicationController
   before_action :set_public_key, only: [:index, :create]
+  before_action :authenticate_user!, only: [:index, :create]
+  before_action :set_item, only: [:index, :create]
+  before_action :move_to_root, only: [:index, :create]
 
   def index
     @item = Item.find(params[:item_id])
@@ -41,4 +44,13 @@ class OrdersController < ApplicationController
   def set_public_key
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
   end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def move_to_root
+    redirect_to root_path if current_user.id == @item.user.id || @item.sold_out?
+  end
+
 end
