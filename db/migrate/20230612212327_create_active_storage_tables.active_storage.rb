@@ -1,3 +1,4 @@
+# \\wsl.localhost\Ubuntu\home\aivets\projects\furima-39831\db\migrate\20230612212327_create_active_storage_tables.active_storage.rb
 # This migration comes from active_storage (originally 20170806125915)
 class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
   def change

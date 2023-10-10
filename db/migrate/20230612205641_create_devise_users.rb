@@ -1,3 +1,4 @@
+# \\wsl.localhost\Ubuntu\home\aivets\projects\furima-39831\db\migrate\20230612205641_create_devise_users.rb
 # frozen_string_literal: true
 
 class CreateDeviseUsers < ActiveRecord::Migration[7.0]

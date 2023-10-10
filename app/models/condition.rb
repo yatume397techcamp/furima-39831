@@ -1,3 +1,4 @@
+# \\wsl.localhost\Ubuntu\home\aivets\projects\furima-39831\app\models\condition.rb
 class Condition < ActiveHash::Base
   self.data = [
     { id: 0, example: '---' },
