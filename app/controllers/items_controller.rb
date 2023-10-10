@@ -14,11 +14,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      return redirect_to root_path
-    else
-      render 'new', status: :unprocessable_entity
-    end
+    return redirect_to root_path if @item.save
+
+    render 'new', status: :unprocessable_entity
   end
 
   def show
@@ -28,19 +26,15 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
-      return redirect_to item_path(@item)
-    else
-      render 'edit', status: :unprocessable_entity
-    end
+    return redirect_to item_path(@item) if @item.update(item_params)
+
+    render 'edit', status: :unprocessable_entity
   end
 
   def destroy
-    if @item.destroy
-      return redirect_to root_path
-    else
-      render 'show', status: :unprocessable_entity
-    end
+    return redirect_to root_path if @item.destroy
+
+    render 'show', status: :unprocessable_entity
   end
 
   private
@@ -64,6 +58,6 @@ class ItemsController < ApplicationController
   end
 
   def redirect_to_show
-    return redirect_to root_path if current_user.id != @item.user.id || @item.sold_out?
+    redirect_to root_path if current_user.id != @item.user.id || @item.sold_out?
   end
 end
